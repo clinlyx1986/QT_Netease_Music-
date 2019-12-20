@@ -18,14 +18,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    widget_tab1.cpp \
     widget_tab2.cpp
 
 HEADERS += \
     mainwindow.h \
+    widget_tab1.h \
     widget_tab2.h
 
 FORMS += \
     mainwindow.ui \
+    widget_tab1.ui \
     widget_tab2.ui
 
 # Default rules for deployment.
