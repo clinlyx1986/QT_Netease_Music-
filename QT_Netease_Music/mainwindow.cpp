@@ -15,6 +15,8 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 
+#include <QTabWidget>
+
 #include <QtDebug>
 #include <QAction>
 
@@ -117,14 +119,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     treeWidget->setMaximumWidth(190);
 
-    // 右侧区域
-    QTextEdit *textedit = new QTextEdit(this);
+    // 右侧区域 修改为TabWidget控件
+    //QTextEdit *textedit = new QTextEdit(this);
+    QTabWidget* tabWidget = new QTabWidget(this);
+    QWidget* tab1 = new QWidget(this);
+    QWidget* tab2 = new QWidget(this);
+    tabWidget->addTab(tab1, "tab1");
+    tabWidget->addTab(tab2, "tab2");
+
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
     textedit2->setMaximumHeight(60);
     //
     hLayout->addWidget(treeWidget);
-    hLayout->addWidget(textedit);
+    hLayout->addWidget(tabWidget);
 
     // 给水平布局器，增加一个widget封装
     QWidget *nan_hlayout_widget = new QWidget() ;
