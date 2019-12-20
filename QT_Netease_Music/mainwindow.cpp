@@ -27,6 +27,8 @@
 #include <QLabel>
 #include <QTextEdit>
 
+#include "widget_tab2.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -172,8 +174,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // 第二个tab选项卡
-    QLabel* tab1_label2 = new QLabel("label2", this);
-    tabWidget->addTab(tab1_label2, "tab2");
+    //QLabel* tab1_label2 = new QLabel("label2", this);
+    WidgetTab2* tab2 = new WidgetTab2(this);
+    tabWidget->addTab(tab2, "tab2");
 
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
