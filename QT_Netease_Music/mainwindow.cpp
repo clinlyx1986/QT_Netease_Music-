@@ -5,12 +5,14 @@
 #include <QMenuBar>
 
 #include <QToolBar>
+#include <QStatusBar>
 
 #include <QtDebug>
 #include <QAction>
 
 #include <QMessageBox>
 #include <QPushButton>
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -46,6 +48,20 @@ MainWindow::MainWindow(QWidget *parent)
     tool_btn->setText("tool_btn");
     toolBar->addWidget(tool_btn);
     this->connect(tool_btn, &QPushButton::clicked, this, &MainWindow::toolBtnDialog);
+
+    // 状态栏
+    QStatusBar* sBar = statusBar();
+    QLabel *status_label1 = new QLabel(this);
+    status_label1->setText("part 1");
+    sBar->addWidget(status_label1);
+    //addWidget从左往右添加
+    QLabel *status_label2 = new QLabel(this);
+    status_label2->setText("part 2");
+    sBar->addWidget(status_label2);
+    //addpermanentwidget从右往左添加
+    QLabel *status_label3 = new QLabel(this);
+    status_label3->setText("part 3");
+    sBar->addPermanentWidget(status_label3);
 
 }
 
