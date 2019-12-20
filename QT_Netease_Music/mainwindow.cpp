@@ -122,10 +122,13 @@ MainWindow::MainWindow(QWidget *parent)
     // 右侧区域 修改为TabWidget控件
     //QTextEdit *textedit = new QTextEdit(this);
     QTabWidget* tabWidget = new QTabWidget(this);
-    QWidget* tab1 = new QWidget(this);
-    QWidget* tab2 = new QWidget(this);
-    tabWidget->addTab(tab1, "tab1");
-    tabWidget->addTab(tab2, "tab2");
+
+    // 第一个tab选项卡
+    QLabel* tab1_label1 = new QLabel("label1", this);
+    tabWidget->addTab(tab1_label1, "tab1");
+    // 第二个tab选项卡
+    QLabel* tab1_label2 = new QLabel("label2", this);
+    tabWidget->addTab(tab1_label2, "tab2");
 
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
