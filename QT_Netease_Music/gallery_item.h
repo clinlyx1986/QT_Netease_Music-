@@ -15,6 +15,8 @@ public:
     explicit gallery_item_widget(QWidget *parent = nullptr);
     ~gallery_item_widget();
 
+    bool loadfile(const QString& fileName);
+    void setImage(const QImage &newImage);
 private:
     Ui::gallery_item *ui;
 };
