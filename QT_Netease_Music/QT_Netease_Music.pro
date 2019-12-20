@@ -16,17 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    gallery_item.cpp \
     main.cpp \
     mainwindow.cpp \
     widget_tab1.cpp \
     widget_tab2.cpp
 
 HEADERS += \
+    gallery_item.h \
     mainwindow.h \
     widget_tab1.h \
     widget_tab2.h
 
 FORMS += \
+    gallery_item.ui \
     mainwindow.ui \
     widget_tab1.ui \
     widget_tab2.ui
