@@ -16,6 +16,8 @@
 #include <QTreeWidgetItem>
 
 #include <QTabWidget>
+#include <QComboBox>
+#include <QGridLayout>
 
 #include <QtDebug>
 #include <QAction>
@@ -114,7 +116,7 @@ MainWindow::MainWindow(QWidget *parent)
     // 添加tree的顶层节点
     treeWidget->insertTopLevelItem(0, group1);
     // 节点始终展开某个节点
-    treeWidget->setItemsExpandable(false);
+    //treeWidget->setItemsExpandable(false);
     treeWidget->expandItem(group1);
 
     treeWidget->setMaximumWidth(190);
@@ -124,8 +126,51 @@ MainWindow::MainWindow(QWidget *parent)
     QTabWidget* tabWidget = new QTabWidget(this);
 
     // 第一个tab选项卡
-    QLabel* tab1_label1 = new QLabel("label1", this);
-    tabWidget->addTab(tab1_label1, "tab1");
+    {
+        QVBoxLayout* vLayout = new QVBoxLayout(this);
+        QHBoxLayout* hLayout = new QHBoxLayout(this);
+
+        QWidget* nanWidget = new QWidget(this);
+        nanWidget->setLayout(hLayout);
+
+        QWidget* nanWidget2 = new QWidget(this);
+        nanWidget2->setLayout(vLayout);
+
+        QComboBox* comboBox1 = new QComboBox(this);
+        hLayout->addWidget(comboBox1);
+        comboBox1->addItem("country");
+        comboBox1->addItem("rock");
+
+        QPushButton* btn1 = new QPushButton("popular", this);
+        hLayout->addWidget(btn1);
+
+        QPushButton* btn2 = new QPushButton("popular", this);
+        hLayout->addWidget(btn2);
+
+        vLayout->addWidget(nanWidget);
+
+        QGridLayout* grid = new QGridLayout(this);
+
+        QWidget* nanWidget3 = new QWidget(this);
+        nanWidget3->setLayout(grid);
+
+        QPushButton* btn3 = new QPushButton("btn3", this);
+        grid->addWidget(btn3, 0, 0);
+        QPushButton* btn4 = new QPushButton("btn4", this);
+        grid->addWidget(btn4, 0, 1);
+        QPushButton* btn5 = new QPushButton("btn5", this);
+        grid->addWidget(btn5, 1, 0);
+        QPushButton* btn6 = new QPushButton("btn6", this);
+        grid->addWidget(btn6, 1, 1);
+
+        vLayout->addWidget(nanWidget3);
+
+
+        tabWidget->addTab(nanWidget2, "tab1");
+    }
+
+
+
     // 第二个tab选项卡
     QLabel* tab1_label2 = new QLabel("label2", this);
     tabWidget->addTab(tab1_label2, "tab2");
