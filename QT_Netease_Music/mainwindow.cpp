@@ -79,11 +79,11 @@ MainWindow::MainWindow(QWidget *parent)
 //    QTextEdit* dock_edit = new QTextEdit(this);
 //    dock->setWidget(dock_edit);
 
-    QDockWidget* dock2 = new QDockWidget("dock2", this);
-    addDockWidget(Qt::BottomDockWidgetArea, dock2);
-    // 浮动窗口，添加各种控件
-    QTextEdit* dock_edit2 = new QTextEdit(this);
-    dock2->setWidget(dock_edit2);
+//    QDockWidget* dock2 = new QDockWidget("dock2", this);
+//    addDockWidget(Qt::BottomDockWidgetArea, dock2);
+//    // 浮动窗口，添加各种控件
+//    QTextEdit* dock_edit2 = new QTextEdit(this);
+//    dock2->setWidget(dock_edit2);
 
     // 将客户区域，简单的拆分为2行，共3个区域
     QVBoxLayout* vLayout = new QVBoxLayout(this);
@@ -115,10 +115,13 @@ MainWindow::MainWindow(QWidget *parent)
     treeWidget->setItemsExpandable(false);
     treeWidget->expandItem(group1);
 
+    treeWidget->setMaximumWidth(190);
+
     // 右侧区域
     QTextEdit *textedit = new QTextEdit(this);
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
+    textedit2->setMaximumHeight(60);
     //
     hLayout->addWidget(treeWidget);
     hLayout->addWidget(textedit);
