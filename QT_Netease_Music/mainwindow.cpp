@@ -7,12 +7,15 @@
 #include <QToolBar>
 #include <QStatusBar>
 
+#include <QDockWidget>
+
 #include <QtDebug>
 #include <QAction>
 
 #include <QMessageBox>
 #include <QPushButton>
 #include <QLabel>
+#include <QTextEdit>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -63,6 +66,18 @@ MainWindow::MainWindow(QWidget *parent)
     status_label3->setText("part 3");
     sBar->addPermanentWidget(status_label3);
 
+    // 浮动窗口
+    QDockWidget* dock = new QDockWidget("dock1", this);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+    // 浮动窗口，添加各种控件
+    QTextEdit* dock_edit = new QTextEdit(this);
+    dock->setWidget(dock_edit);
+
+    QDockWidget* dock2 = new QDockWidget("dock2", this);
+    addDockWidget(Qt::BottomDockWidgetArea, dock2);
+    // 浮动窗口，添加各种控件
+    QTextEdit* dock_edit2 = new QTextEdit(this);
+    dock2->setWidget(dock_edit2);
 }
 
 MainWindow::~MainWindow()
