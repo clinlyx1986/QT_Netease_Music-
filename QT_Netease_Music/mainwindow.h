@@ -18,6 +18,7 @@ public:
     void newProject();
     void openProject();
     void aboutDialog();
+    void toolBtnDialog();
 private:
     Ui::MainWindow *ui;
 };
