@@ -63,7 +63,10 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton* tool_btn = new QPushButton(this);
     tool_btn->setText("tool_btn");
     toolBar->addWidget(tool_btn);
-    this->connect(tool_btn, &QPushButton::clicked, this, &MainWindow::toolBtnDialog);
+    //this->connect(tool_btn, &QPushButton::clicked, this, &MainWindow::toolBtnDialog);
+    QObject::connect(tool_btn, &QPushButton::clicked, [](bool) {
+        qDebug() << "Clicked.";}
+    );
 
     // 状态栏
     QStatusBar* sBar = statusBar();
