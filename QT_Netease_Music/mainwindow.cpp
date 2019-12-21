@@ -29,6 +29,7 @@
 
 #include "widget_tab1.h"
 #include "widget_tab2.h"
+#include "MiddleWidgetLeftList.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -99,33 +100,36 @@ MainWindow::MainWindow(QWidget *parent)
     QVBoxLayout* vLayout = new QVBoxLayout(this);
     QHBoxLayout* hLayout = new QHBoxLayout(this);
 
-    // TreeWidget控件
-    QTreeWidget* treeWidget = new QTreeWidget(this);
-    //第一组
-    QTreeWidgetItem *group1=new QTreeWidgetItem();
-    group1->setText(0,"group1");
-    group1->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
-    group1->setCheckState(0,Qt::Unchecked);
-    QTreeWidgetItem *item11=new QTreeWidgetItem(group1);
-    item11->setText(0,"item11");
-    item11->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
-    item11->setCheckState(0,Qt::Unchecked);
-    QTreeWidgetItem *item12=new QTreeWidgetItem(group1);
-    item12->setText(0,"item12");
-    item12->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
-    item12->setCheckState(0,Qt::Unchecked);
-    QTreeWidgetItem *item13=new QTreeWidgetItem(group1);
-    item13->setText(0,"item13");
-    item13->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
-    item13->setCheckState(0,Qt::Unchecked);
+//    // TreeWidget控件
+//    QTreeWidget* treeWidget = new QTreeWidget(this);
+//    //第一组
+//    QTreeWidgetItem *group1=new QTreeWidgetItem();
+//    group1->setText(0,"group1");
+//    group1->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
+//    group1->setCheckState(0,Qt::Unchecked);
+//    QTreeWidgetItem *item11=new QTreeWidgetItem(group1);
+//    item11->setText(0,"item11");
+//    item11->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
+//    item11->setCheckState(0,Qt::Unchecked);
+//    QTreeWidgetItem *item12=new QTreeWidgetItem(group1);
+//    item12->setText(0,"item12");
+//    item12->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
+//    item12->setCheckState(0,Qt::Unchecked);
+//    QTreeWidgetItem *item13=new QTreeWidgetItem(group1);
+//    item13->setText(0,"item13");
+//    item13->setFlags(Qt::ItemIsUserCheckable|Qt::ItemIsEnabled|Qt::ItemIsSelectable);
+//    item13->setCheckState(0,Qt::Unchecked);
 
-    // 添加tree的顶层节点
-    treeWidget->insertTopLevelItem(0, group1);
-    // 节点始终展开某个节点
-    //treeWidget->setItemsExpandable(false);
-    treeWidget->expandItem(group1);
+//    // 添加tree的顶层节点
+//    treeWidget->insertTopLevelItem(0, group1);
+//    // 节点始终展开某个节点
+//    //treeWidget->setItemsExpandable(false);
+//    treeWidget->expandItem(group1);
 
-    treeWidget->setMaximumWidth(190);
+//    treeWidget->setMaximumWidth(190);
+
+    // 右侧列表区域
+    MiddleWidgetLeftList* m_list = new MiddleWidgetLeftList(this);
 
     // 右侧区域 修改为TabWidget控件
     //QTextEdit *textedit = new QTextEdit(this);
@@ -144,7 +148,8 @@ MainWindow::MainWindow(QWidget *parent)
     QTextEdit *textedit2 = new QTextEdit(this);
     textedit2->setMaximumHeight(60);
     //
-    hLayout->addWidget(treeWidget);
+//    hLayout->addWidget(treeWidget);
+    hLayout->addWidget(m_list);
     hLayout->addWidget(tabWidget);
 
     // 给水平布局器，增加一个widget封装

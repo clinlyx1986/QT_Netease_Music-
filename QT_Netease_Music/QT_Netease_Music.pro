@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    MiddleWidgetLeftList.cpp \
     gallery_item.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     widget_tab2.cpp
 
 HEADERS += \
+    MiddleWidgetLeftList.h \
     gallery_item.h \
     mainwindow.h \
     widget_tab1.h \
@@ -41,3 +43,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Resources/Logo.png
+
+RESOURCES += \
+    res.qrc \
+    res.qrc
