@@ -31,6 +31,7 @@
 #include "widget_tab2.h"
 #include "MiddleWidgetLeftList.h"
 #include "MiddleWidgetRightStack.h"
+#include "BottomWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -149,6 +150,9 @@ MainWindow::MainWindow(QWidget *parent)
 //    WidgetTab2* tab2 = new WidgetTab2(this);
 //    tabWidget->addTab(tab2, "tab2");
 
+    // 底部播放区域
+    BottomWidget* bottomPlayWidget = new BottomWidget(this);
+
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
     textedit2->setMaximumHeight(60);
@@ -163,6 +167,7 @@ MainWindow::MainWindow(QWidget *parent)
     nan_hlayout_widget->setLayout(hLayout);
 
     vLayout->addWidget(nan_hlayout_widget);
+    vLayout->addWidget(bottomPlayWidget);
     vLayout->addWidget(textedit2);
 
     // 给垂直布局器，增加一个widget封装
