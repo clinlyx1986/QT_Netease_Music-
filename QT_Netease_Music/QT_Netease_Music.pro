@@ -16,7 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ListWidgetLocalMusic.cpp \
     MiddleWidgetLeftList.cpp \
+    MiddleWidgetRightStack.cpp \
     gallery_item.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,7 +26,9 @@ SOURCES += \
     widget_tab2.cpp
 
 HEADERS += \
+    ListWidgetLocalMusic.h \
     MiddleWidgetLeftList.h \
+    MiddleWidgetRightStack.h \
     gallery_item.h \
     mainwindow.h \
     widget_tab1.h \

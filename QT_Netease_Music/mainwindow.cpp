@@ -30,6 +30,7 @@
 #include "widget_tab1.h"
 #include "widget_tab2.h"
 #include "MiddleWidgetLeftList.h"
+#include "MiddleWidgetRightStack.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -128,21 +129,25 @@ MainWindow::MainWindow(QWidget *parent)
 
 //    treeWidget->setMaximumWidth(190);
 
-    // 右侧列表区域
+    // 左侧列表区域
     MiddleWidgetLeftList* m_list = new MiddleWidgetLeftList(this);
 
-    // 右侧区域 修改为TabWidget控件
-    //QTextEdit *textedit = new QTextEdit(this);
-    QTabWidget* tabWidget = new QTabWidget(this);
+    // 右侧区域 修改为stackedwidget控件
+    MiddleWidgetRightStack* myStack = new MiddleWidgetRightStack(this);
 
-    // 第一个tab选项卡
-    WidgetTab1* tab1 = new WidgetTab1(this);
-    tabWidget->addTab(tab1, "tab1");
 
-    // 第二个tab选项卡
-    //QLabel* tab1_label2 = new QLabel("label2", this);
-    WidgetTab2* tab2 = new WidgetTab2(this);
-    tabWidget->addTab(tab2, "tab2");
+//    // 右侧区域 修改为TabWidget控件
+//    //QTextEdit *textedit = new QTextEdit(this);
+//    QTabWidget* tabWidget = new QTabWidget(this);
+
+//    // 第一个tab选项卡
+//    WidgetTab1* tab1 = new WidgetTab1(this);
+//    tabWidget->addTab(tab1, "tab1");
+
+//    // 第二个tab选项卡
+//    //QLabel* tab1_label2 = new QLabel("label2", this);
+//    WidgetTab2* tab2 = new WidgetTab2(this);
+//    tabWidget->addTab(tab2, "tab2");
 
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
@@ -150,7 +155,8 @@ MainWindow::MainWindow(QWidget *parent)
     //
 //    hLayout->addWidget(treeWidget);
     hLayout->addWidget(m_list);
-    hLayout->addWidget(tabWidget);
+//    hLayout->addWidget(tabWidget);
+    hLayout->addWidget(myStack);
 
     // 给水平布局器，增加一个widget封装
     QWidget *nan_hlayout_widget = new QWidget() ;
