@@ -20,6 +20,7 @@ SOURCES += \
     ListWidgetLocalMusic.cpp \
     MiddleWidgetLeftList.cpp \
     MiddleWidgetRightStack.cpp \
+    TitleBar.cpp \
     gallery_item.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     ListWidgetLocalMusic.h \
     MiddleWidgetLeftList.h \
     MiddleWidgetRightStack.h \
+    TitleBar.h \
     gallery_item.h \
     mainwindow.h \
     widget_tab1.h \

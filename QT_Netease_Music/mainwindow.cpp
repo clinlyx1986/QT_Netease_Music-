@@ -32,6 +32,7 @@
 #include "MiddleWidgetLeftList.h"
 #include "MiddleWidgetRightStack.h"
 #include "BottomWidget.h"
+#include "TitleBar.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 标题栏文本
     setWindowTitle(tr("Main Window"));
+
+    // 标题栏bar
+    TitleBar* titleBar = new TitleBar(this);
 
     // 菜单栏
     QMenuBar* mBar = menuBar();
@@ -166,6 +170,7 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget *nan_hlayout_widget = new QWidget() ;
     nan_hlayout_widget->setLayout(hLayout);
 
+    vLayout->addWidget(titleBar);
     vLayout->addWidget(nan_hlayout_widget);
     vLayout->addWidget(bottomPlayWidget);
     vLayout->addWidget(textedit2);
