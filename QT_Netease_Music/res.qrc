@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/LeftList/download.png</file>
+        <file>images/LeftList/findMusic.png</file>
+        <file>images/LeftList/findMusic12.png</file>
+        <file>images/LeftList/fm.png</file>
+        <file>images/LeftList/friend.png</file>
+        <file>images/LeftList/local.png</file>
+        <file>images/LeftList/mv.png</file>
+        <file>images/LeftList/single.png</file>
+        <file>images/LeftList/yun.png</file>
+    </qresource>
+</RCC>
