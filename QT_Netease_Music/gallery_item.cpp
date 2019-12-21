@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QDir>
 
+#include <QtDebug>
+
 gallery_item_widget::gallery_item_widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::gallery_item)
@@ -26,9 +28,10 @@ bool gallery_item_widget::loadfile(const QString& fileName)
     reader.setAutoTransform(true);
     const QImage newImage = reader.read();
     if (newImage.isNull()) {
-        QMessageBox::information(this, QGuiApplication::applicationDisplayName(),
-                                 tr("Cannot load %1: %2")
-                                 .arg(QDir::toNativeSeparators(fileName), reader.errorString()));
+//        QMessageBox::information(this, QGuiApplication::applicationDisplayName(),
+//                                 tr("Cannot load %1: %2")
+//                                 .arg(QDir::toNativeSeparators(fileName), reader.errorString()));
+        qDebug() << "Cannot load file.";
         return false;
     }
     setImage(newImage);
