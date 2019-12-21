@@ -9,5 +9,20 @@
         <file>images/LeftList/mv.png</file>
         <file>images/LeftList/single.png</file>
         <file>images/LeftList/yun.png</file>
+        <file>images/RightStack/0/btn_mask.png</file>
+        <file>images/RightStack/0/btn_normal_mask.png</file>
+        <file>images/RightStack/4/Add.png</file>
+        <file>images/RightStack/4/cd.png</file>
+        <file>images/RightStack/4/cd_checked.png</file>
+        <file>images/RightStack/4/close.png</file>
+        <file>images/RightStack/4/dir.png</file>
+        <file>images/RightStack/4/dir_checked.png</file>
+        <file>images/RightStack/4/list.png</file>
+        <file>images/RightStack/4/list_checked.png</file>
+        <file>images/RightStack/4/Match.png</file>
+        <file>images/RightStack/4/PlayAll.png</file>
+        <file>images/RightStack/4/search.png</file>
+        <file>images/RightStack/4/singal.png</file>
+        <file>images/RightStack/4/singal_checked.png</file>
     </qresource>
 </RCC>
