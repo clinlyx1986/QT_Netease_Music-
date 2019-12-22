@@ -35,6 +35,7 @@
 #include "TitleBar.h"
 #include "PlaySongInfoWidget.h"
 #include "TurntableWidget.h"
+#include "SongListFrame.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -160,7 +161,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    tabWidget->addTab(tab2, "tab2");
 
     // 底部播放区域
-    BottomWidget* bottomPlayWidget = new BottomWidget(this);
+    bottomPlayWidget = new BottomWidget(this);
 
     // 底部区域
     QTextEdit *textedit2 = new QTextEdit(this);
@@ -204,13 +205,14 @@ MainWindow::MainWindow(QWidget *parent)
     h_turnTable_layout->addWidget(m_turntableWidget);
     h_turnTable_layout->addStretch();
 
-
-
     connect(playSongInfo->cdLabel,&ClickLabel::clicked,this,&MainWindow::slot_showTurnTableWidget);
     connect(m_turntableWidget->hideButton,&QPushButton::clicked,this,&MainWindow::slot_hideTurnTableWidget);
 
 
-
+    //播放列表
+    m_SongListFrame = new SongListFrame(this);
+    m_SongListFrame->hide();
+    connect(bottomPlayWidget->listBtn,&QPushButton::clicked,this,&MainWindow::slot_showSongListWidget);
 }
 
 MainWindow::~MainWindow()
@@ -243,7 +245,6 @@ void MainWindow::toolBtnDialog()
 void MainWindow::slot_showTurnTableWidget()
 {
     m_turnTableLayoutWidget->setGeometry(0, 0, this->width(), this->height());
-
     m_turnTableLayoutWidget->show();
     qDebug() << "show turn tablewidget";
 }
@@ -253,4 +254,17 @@ void MainWindow::slot_hideTurnTableWidget()
 {
     m_turnTableLayoutWidget->hide();
     qDebug() << "hide turn tablewidget";
+}
+
+//when click list button
+void MainWindow::slot_showSongListWidget()
+{
+    if(m_SongListFrame->isVisible())
+        m_SongListFrame->hide();
+    else
+    {
+        m_SongListFrame->setGeometry(width()-m_SongListFrame->width(),height()-m_SongListFrame->height()- bottomPlayWidget->height(),580,470);
+        m_SongListFrame->show();
+        m_SongListFrame->raise();
+    }
 }

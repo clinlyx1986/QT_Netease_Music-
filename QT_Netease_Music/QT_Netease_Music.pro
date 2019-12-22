@@ -22,6 +22,7 @@ SOURCES += \
     MiddleWidgetLeftList.cpp \
     MiddleWidgetRightStack.cpp \
     PlaySongInfoWidget.cpp \
+    SongListFrame.cpp \
     TitleBar.cpp \
     TurntableWidget.cpp \
     gallery_item.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     MiddleWidgetLeftList.h \
     MiddleWidgetRightStack.h \
     PlaySongInfoWidget.h \
+    SongListFrame.h \
     TitleBar.h \
     TurntableWidget.h \
     gallery_item.h \
