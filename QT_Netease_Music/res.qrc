@@ -67,5 +67,11 @@
         <file>images/Turntable/hide.png</file>
         <file>images/Turntable/record.png</file>
         <file>images/Turntable/stylus.png</file>
+        <file>images/SongList/closeList.png</file>
+        <file>images/SongList/Collect.png</file>
+        <file>images/SongList/Empty.png</file>
+        <file>images/SongList/pauseLabel.png</file>
+        <file>images/SongList/playLabel.png</file>
+        <file>images/SongList/source.png</file>
     </qresource>
 </RCC>
