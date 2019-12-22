@@ -63,5 +63,9 @@
         <file>images/TitleBar/titleIcon.png</file>
         <file>images/TitleBar/userIcon.png</file>
         <file>images/SongInfo</file>
+        <file>images/Turntable/cdCover.png</file>
+        <file>images/Turntable/hide.png</file>
+        <file>images/Turntable/record.png</file>
+        <file>images/Turntable/stylus.png</file>
     </qresource>
 </RCC>
