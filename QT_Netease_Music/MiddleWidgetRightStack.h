@@ -14,8 +14,8 @@
 #include <QTableWidgetItem>
 #include <QScrollBar>
 #include <QDir>
-//#include <QMediaPlayer>
-//#include <QMediaPlaylist>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 #include <QMovie>
 //#include <QThread>
 #include <QFile>
@@ -66,7 +66,7 @@ public:
     QStringList MD5List;
 
     //local music list
-//    QMediaPlaylist *localPlayList;
+    QMediaPlaylist *localPlayList;
 };
 
 #endif // MIDDLEWIDGETRIGHTSTACK_H

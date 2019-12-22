@@ -52,59 +52,68 @@ void MiddleWidgetRightStack::setTableItem(int rownum, QString title, QString sin
 
 void MiddleWidgetRightStack::slot_widget4MatchSong()
 {
-//    //every time match clean content first
-//    localPlayList = new QMediaPlaylist(this);
-//    localMusic_BaseStack->m_StackFrame1TableWidget->clearContents();
-//    localMusic_BaseStack->m_StackFrame1TableWidget->setRowCount(0);
-//    rowcount = 0;
-//    MD5List.clear();
+    //every time match clean content first
+    localPlayList = new QMediaPlaylist(this);
+    localMusic_BaseStack->m_StackFrame1TableWidget->clearContents();
+    localMusic_BaseStack->m_StackFrame1TableWidget->setRowCount(0);
+    rowcount = 0;
+    MD5List.clear();
 
-//    int countSum = 0;
-//    //SongDirPath changed in "MiddleWidget::slot_ackDir"
-//    for(int i=0; i<SongDirPath.count(); ++i)
-//    {
-//        matchDir.setPath(SongDirPath.at(i));
-//        matchDir.setNameFilters(QStringList("*.mp3"));//Filter file with ".mp3"
-//        matchMp3Files = matchDir.entryList();//List all eligible documents
-//        countSum = matchMp3Files.count();
-//        for(int j=0; j<countSum; j++)
-//        {
-//            mp3Name = SongDirPath.at(i) + '/' + matchMp3Files.at(j);
+    qDebug() << "MatchSong.";
+    qDebug() << "SongDirPath.count() : " << SongDirPath.count();
+    int countSum = 0;
+    //SongDirPath changed in "MiddleWidget::slot_ackDir"
 
-//            //compare file md5
-//            QFile file(mp3Name);
-//            file.open(QIODevice::ReadOnly);
-//            MD5Str = QCryptographicHash::hash(file.readAll(),QCryptographicHash::Md5).toHex().constData();
-//            file.close();
+    QString str_path = "H:\\mp3\\Jay\\";
+    SongDirPath.append(str_path);
 
-//            if(MD5List.contains(MD5Str))
-//                continue;
-//            MD5List.append(MD5Str);
+    for(int i=0; i<SongDirPath.count(); ++i)
+    {
+        matchDir.setPath(SongDirPath.at(i));
+        matchDir.setNameFilters(QStringList("*.mp3"));//Filter file with ".mp3"
+        matchMp3Files = matchDir.entryList();//List all eligible documents
+        countSum = matchMp3Files.count();
+        for(int j=0; j<countSum; j++)
+        {
+            mp3Name = SongDirPath.at(i) + '/' + matchMp3Files.at(j);
 
-//            //add music to play list
-//            localPlayList->addMedia(QUrl::fromLocalFile(mp3Name));
+            //compare file md5
+            QFile file(mp3Name);
+            file.open(QIODevice::ReadOnly);
+            MD5Str = QCryptographicHash::hash(file.readAll(),QCryptographicHash::Md5).toHex().constData();
+            file.close();
 
-//            //mp3 size
-//            fileInfo.setFile(mp3Name);
-//            qint64 fileSize= fileInfo.size();
-//            if(fileSize/1024)
-//            {
-//                if(fileSize/1024/1024)
-//                {
-//                    if(fileSize/1024/1024/1024)
-//                    {
-//                        mp3Size = QString::number(fileSize/1024/1024/1024,10)+"GB";
-//                    }
-//                    else
-//                       mp3Size = QString::number(fileSize/1024/1024,10)+"MB";
-//                }
-//                else
-//                    mp3Size = QString::number(fileSize/1024,10)+"KB";
-//            }
-//            else
-//                mp3Size = QString::number(fileSize,10)+"B";
+            if(MD5List.contains(MD5Str))
+                continue;
+            MD5List.append(MD5Str);
 
-//            bytes = mp3Name.toLocal8Bit();
+            //add music to play list
+            localPlayList->addMedia(QUrl::fromLocalFile(mp3Name));
+
+            //mp3 size
+            fileInfo.setFile(mp3Name);
+            qint64 fileSize= fileInfo.size();
+            if(fileSize/1024)
+            {
+                if(fileSize/1024/1024)
+                {
+                    if(fileSize/1024/1024/1024)
+                    {
+                        mp3Size = QString::number(fileSize/1024/1024/1024,10)+"GB";
+                    }
+                    else
+                       mp3Size = QString::number(fileSize/1024/1024,10)+"MB";
+                }
+                else
+                    mp3Size = QString::number(fileSize/1024,10)+"KB";
+            }
+            else
+                mp3Size = QString::number(fileSize,10)+"B";
+
+            bytes = mp3Name.toLocal8Bit();
+
+            // 音乐标题，暂时使用文件名称
+            titleStr = fileInfo.fileName();
 
 //            TagLib::FileRef f(bytes.data());
 
@@ -135,14 +144,14 @@ void MiddleWidgetRightStack::slot_widget4MatchSong()
 //            int minutes = (properties->length() - seconds) / 60;
 //            timeStr = QString::number(minutes)+":"+QString("%1").arg(seconds, 2, 10, QChar('0'));
 
-//            //get pre for insert
-//            rowcount = localMusic_BaseStack->m_StackFrame1TableWidget->rowCount();
+            //get pre for insert
+            rowcount = localMusic_BaseStack->m_StackFrame1TableWidget->rowCount();
 
-//            setTableItem(rowcount, titleStr, artistStr, albumStr, timeStr, mp3Size);
-//            //getlast insert
-//            rowcount = localMusic_BaseStack->m_StackFrame1TableWidget->rowCount();
-//        }
-//    }
-//    //update how many songs
-//    localMusic_BaseStack->m_CountLabel->setText(QString("%1首音乐,").arg(rowcount));
+            setTableItem(rowcount, titleStr, artistStr, albumStr, timeStr, mp3Size);
+            //getlast insert
+            rowcount = localMusic_BaseStack->m_StackFrame1TableWidget->rowCount();
+        }
+    }
+    //update how many songs
+    localMusic_BaseStack->m_CountLabel->setText(QStringLiteral("%1首音乐,").arg(rowcount));
 }
