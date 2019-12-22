@@ -10,6 +10,8 @@ QT_END_NAMESPACE
 class TurntableWidget;
 class SongListFrame;
 class BottomWidget;
+class SkinWidget;
+class TitleBar;
 
 class MainWindow : public QMainWindow
 {
@@ -27,11 +29,14 @@ public:
     void slot_showTurnTableWidget();
     void slot_hideTurnTableWidget();
     void slot_showSongListWidget();
+    void slot_showSkinWidget();
 private:
     Ui::MainWindow *ui;
     QWidget* m_turnTableLayoutWidget;
     TurntableWidget* m_turntableWidget;
     SongListFrame* m_SongListFrame;
     BottomWidget* bottomPlayWidget;
+    SkinWidget* m_skinWidget;
+    TitleBar* m_TitleBar;
 };
 #endif // MAINWINDOW_H

@@ -36,6 +36,7 @@
 #include "PlaySongInfoWidget.h"
 #include "TurntableWidget.h"
 #include "SongListFrame.h"
+#include "SkinWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -47,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle(tr("Main Window"));
 
     // 标题栏bar
-    TitleBar* titleBar = new TitleBar(this);
+    m_TitleBar = new TitleBar(this);
 
     // 菜单栏
     QMenuBar* mBar = menuBar();
@@ -177,7 +178,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    hLayout->addWidget(tabWidget);
     hLayout->addWidget(myStack);
 
-    vLayout->addWidget(titleBar);
+    vLayout->addWidget(m_TitleBar);
     vLayout->addLayout(hLayout);
     vLayout->addWidget(bottomPlayWidget);
     vLayout->addWidget(textedit2);
@@ -213,6 +214,36 @@ MainWindow::MainWindow(QWidget *parent)
     m_SongListFrame = new SongListFrame(this);
     m_SongListFrame->hide();
     connect(bottomPlayWidget->listBtn,&QPushButton::clicked,this,&MainWindow::slot_showSongListWidget);
+
+    //skin widget
+    m_skinWidget = new SkinWidget(this);
+    connect(m_TitleBar->skinBtn,&QPushButton::clicked,this,&MainWindow::slot_showSkinWidget);
+    for(int i=0; i<m_skinWidget->m_ClickLabelVec.size(); ++i)
+        connect(m_skinWidget->m_ClickLabelVec.at(i),&ClickLabel::clicked,[=]()
+        {
+            //widget_color = i;
+            m_TitleBar->setStyleSheet("QFrame{background-color:"+m_skinWidget->color1_list[i]+";}");
+            m_TitleBar->searchEdit->setStyleSheet("QLineEdit{border-radius:10px;\
+                                                  background:"+m_skinWidget->color2_list[i]+";\
+                                                  color:rgb(238,211,211);}");
+
+            //m_MiniWidget->setStyleSheet("QFrame{background-color:"+m_skinWidget->color1_list[i]+";}");
+
+            bottomPlayWidget->lastBtn->setStyleSheet("QPushButton{background:"+m_skinWidget->color1_list[i]+";border-radius:15px}");
+            bottomPlayWidget->playBtn->setStyleSheet("QPushButton{background:"+m_skinWidget->color1_list[i]+";border-radius:15px}");
+            bottomPlayWidget->nextBtn->setStyleSheet("QPushButton{background:"+m_skinWidget->color1_list[i]+";border-radius:15px}");
+
+            bottomPlayWidget->playTimeSlider->setStyleSheet("QSlider::groove:horizontal{height: 4px;background: "+m_skinWidget->color1_list[i]+";}\
+                                           QSlider::add-page:horizontal{background:#c2c2c4;}\
+                                           QSlider::handle:horizontal{width: 14px;background: url(:/images/BottomPlay/curTimeHandle.png);margin: -5 0 -5 0;}");
+
+            bottomPlayWidget->volumeSlider->setStyleSheet("QSlider::groove:horizontal{height: 4px;background: "+m_skinWidget->color1_list[i]+";}\
+                                       QSlider::add-page:horizontal{background:#c2c2c4;}\
+                                       QSlider::handle:horizontal{width: 12px;background: url(:/images/BottomPlay/volumeHandle.png);margin: -4 0 -4 0}");
+
+            m_skinWidget->hide();
+        });
+
 }
 
 MainWindow::~MainWindow()
@@ -266,5 +297,17 @@ void MainWindow::slot_showSongListWidget()
         m_SongListFrame->setGeometry(width()-m_SongListFrame->width(),height()-m_SongListFrame->height()- bottomPlayWidget->height(),580,470);
         m_SongListFrame->show();
         m_SongListFrame->raise();
+    }
+}
+
+void MainWindow::slot_showSkinWidget()
+{
+    if(m_skinWidget->isVisible())
+        m_skinWidget->hide();
+    else
+    {
+        m_skinWidget->setGeometry(m_TitleBar->skinBtn->pos().x()-115, m_TitleBar->skinBtn->pos().y()+80, 260, 169);
+        m_skinWidget->show();
+        m_skinWidget->raise();
     }
 }
