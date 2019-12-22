@@ -11,15 +11,15 @@ MiddleWidgetRightStack::MiddleWidgetRightStack(QWidget *parent) : QStackedWidget
     localMusic_BaseStack = new ListWidgetLocalMusic(this);
     connect(localMusic_BaseStack->m_matchMusicBtn, &QPushButton::clicked, this, &MiddleWidgetRightStack::slot_widget4MatchSong);
 
+    //addWidget(findMusic_BaseStack);
+    addWidget(new QLabel(QStringLiteral("发现音乐"),this));
+    addWidget(new QLabel(QStringLiteral("私人FM"),this));
+    addWidget(new QLabel(QStringLiteral("MV"),this));
+    addWidget(new QLabel(QStringLiteral("朋友"),this));
     addWidget(localMusic_BaseStack);
-//    addWidget(findMusic_BaseStack);
-    addWidget(new QLabel("window 1111",this));
-    addWidget(new QLabel("window 2",this));
-    addWidget(new QLabel("window 3",this));
-//    addWidget(localMusic_BaseStack);
-    addWidget(new QLabel("window 5",this));
-    addWidget(new QLabel("window 6",this));
-    addWidget(new QLabel("window 7",this));
+    addWidget(new QLabel(QStringLiteral("下载管理"),this));
+    addWidget(new QLabel(QStringLiteral("我的音乐云盘"),this));
+    addWidget(new QLabel(QStringLiteral("我的歌手"),this));
 }
 
 MiddleWidgetRightStack::~MiddleWidgetRightStack()

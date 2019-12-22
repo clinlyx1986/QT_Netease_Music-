@@ -244,6 +244,11 @@ MainWindow::MainWindow(QWidget *parent)
             m_skinWidget->hide();
         });
 
+    for(int i=0; i<m_list->m_btnVec.size(); ++i)
+    {
+        connect(m_list->m_btnVec.at(i),&QPushButton::clicked,myStack,[=](){myStack->setCurrentIndex(i);});
+    }
+
 }
 
 MainWindow::~MainWindow()
