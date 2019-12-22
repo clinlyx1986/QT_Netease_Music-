@@ -1,18 +1,19 @@
 ﻿#include "MiddleWidgetRightStack.h"
 
+#include "ListWidgetLocalMusic.h"
+#include "ListWidgetFindMusic.h"
 
 MiddleWidgetRightStack::MiddleWidgetRightStack(QWidget *parent) : QStackedWidget(parent)
 {
     setStyleSheet("QStackedWidget{background:rgb(250,250,250)}");
 
-//    findMusic_BaseStack = new ListWidgetFindMusic(this);
+    findMusic_BaseStack = new ListWidgetFindMusic(this);
 
 
     localMusic_BaseStack = new ListWidgetLocalMusic(this);
     connect(localMusic_BaseStack->m_matchMusicBtn, &QPushButton::clicked, this, &MiddleWidgetRightStack::slot_widget4MatchSong);
 
-    //addWidget(findMusic_BaseStack);
-    addWidget(new QLabel(QStringLiteral("发现音乐"),this));
+    addWidget(findMusic_BaseStack);
     addWidget(new QLabel(QStringLiteral("私人FM"),this));
     addWidget(new QLabel(QStringLiteral("MV"),this));
     addWidget(new QLabel(QStringLiteral("朋友"),this));

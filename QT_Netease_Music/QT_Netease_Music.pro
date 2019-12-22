@@ -16,8 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AnimationWidget.cpp \
     BottomWidget.cpp \
     ClickLabel.cpp \
+    ListWidgetFindMusic.cpp \
     ListWidgetLocalMusic.cpp \
     MiddleWidgetLeftList.cpp \
     MiddleWidgetRightStack.cpp \
@@ -33,8 +35,10 @@ SOURCES += \
     widget_tab2.cpp
 
 HEADERS += \
+    AnimationWidget.h \
     BottomWidget.h \
     ClickLabel.h \
+    ListWidgetFindMusic.h \
     ListWidgetLocalMusic.h \
     MiddleWidgetLeftList.h \
     MiddleWidgetRightStack.h \

@@ -26,9 +26,9 @@
 //#include <taglib/tag.h>
 //#include <taglib/toolkit/tpropertymap.h>
 
-//#include "ListWidgetFindMusic.h"
-#include "ListWidgetLocalMusic.h"
 
+class ListWidgetLocalMusic;
+class ListWidgetFindMusic;
 
 class MiddleWidgetRightStack : public QStackedWidget
 {
@@ -45,7 +45,7 @@ private:
 
 
 public:
-//    ListWidgetFindMusic *findMusic_BaseStack;
+    ListWidgetFindMusic *findMusic_BaseStack;
     ListWidgetLocalMusic *localMusic_BaseStack;
 
     int rowcount;
