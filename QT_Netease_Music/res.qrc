@@ -62,5 +62,6 @@
         <file>images/TitleBar/skin_hover.png</file>
         <file>images/TitleBar/titleIcon.png</file>
         <file>images/TitleBar/userIcon.png</file>
+        <file>images/SongInfo</file>
     </qresource>
 </RCC>
