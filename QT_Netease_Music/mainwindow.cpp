@@ -34,6 +34,7 @@
 #include "BottomWidget.h"
 #include "TitleBar.h"
 #include "PlaySongInfoWidget.h"
+#include "TurntableWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -188,6 +189,28 @@ MainWindow::MainWindow(QWidget *parent)
     // 核心客户区域
     setCentralWidget(nan_vlayout_widget);
 
+    //turntable widget
+    m_turnTableLayoutWidget = new QWidget(nan_vlayout_widget);
+    m_turntableWidget = new TurntableWidget(m_turnTableLayoutWidget);
+    //set layout widget's background color equal to m_turntableWidget background color
+    QPalette background_palette;
+    background_palette.setColor(QPalette::Background,m_turntableWidget->backgroud_color);
+    m_turnTableLayoutWidget->setPalette(background_palette);
+    m_turnTableLayoutWidget->setAutoFillBackground(true);
+    m_turnTableLayoutWidget->hide();
+    //set layout widget's layout
+    QHBoxLayout *h_turnTable_layout = new QHBoxLayout(m_turnTableLayoutWidget);
+    h_turnTable_layout->addStretch();
+    h_turnTable_layout->addWidget(m_turntableWidget);
+    h_turnTable_layout->addStretch();
+
+
+
+    connect(playSongInfo->cdLabel,&ClickLabel::clicked,this,&MainWindow::slot_showTurnTableWidget);
+    connect(m_turntableWidget->hideButton,&QPushButton::clicked,this,&MainWindow::slot_hideTurnTableWidget);
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -214,4 +237,20 @@ void MainWindow::aboutDialog()
 void MainWindow::toolBtnDialog()
 {
     QMessageBox::information(this, tr("info"), "toolBtnDialog");
+}
+
+//show turntable widget
+void MainWindow::slot_showTurnTableWidget()
+{
+    m_turnTableLayoutWidget->setGeometry(0, 0, this->width(), this->height());
+
+    m_turnTableLayoutWidget->show();
+    qDebug() << "show turn tablewidget";
+}
+
+//hide turntable widget
+void MainWindow::slot_hideTurnTableWidget()
+{
+    m_turnTableLayoutWidget->hide();
+    qDebug() << "hide turn tablewidget";
 }
