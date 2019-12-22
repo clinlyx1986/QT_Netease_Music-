@@ -33,6 +33,7 @@
 #include "MiddleWidgetRightStack.h"
 #include "BottomWidget.h"
 #include "TitleBar.h"
+#include "PlaySongInfoWidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -137,6 +138,9 @@ MainWindow::MainWindow(QWidget *parent)
     // 左侧列表区域
     MiddleWidgetLeftList* m_list = new MiddleWidgetLeftList(this);
 
+    // 左侧的播放歌曲信息区域
+    PlaySongInfoWidget* playSongInfo = new PlaySongInfoWidget(this);
+
     // 右侧区域 修改为stackedwidget控件
     MiddleWidgetRightStack* myStack = new MiddleWidgetRightStack(this);
 
@@ -162,16 +166,17 @@ MainWindow::MainWindow(QWidget *parent)
     textedit2->setMaximumHeight(60);
     //
 //    hLayout->addWidget(treeWidget);
-    hLayout->addWidget(m_list);
+
+    QVBoxLayout* vRightLayout = new QVBoxLayout(this);
+    vRightLayout->addWidget(m_list);
+    vRightLayout->addWidget(playSongInfo);
+
+    hLayout->addLayout(vRightLayout);
 //    hLayout->addWidget(tabWidget);
     hLayout->addWidget(myStack);
 
-    // 给水平布局器，增加一个widget封装
-    QWidget *nan_hlayout_widget = new QWidget() ;
-    nan_hlayout_widget->setLayout(hLayout);
-
     vLayout->addWidget(titleBar);
-    vLayout->addWidget(nan_hlayout_widget);
+    vLayout->addLayout(hLayout);
     vLayout->addWidget(bottomPlayWidget);
     vLayout->addWidget(textedit2);
 

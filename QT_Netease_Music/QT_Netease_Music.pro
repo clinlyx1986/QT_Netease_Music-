@@ -17,9 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     BottomWidget.cpp \
+    ClickLabel.cpp \
     ListWidgetLocalMusic.cpp \
     MiddleWidgetLeftList.cpp \
     MiddleWidgetRightStack.cpp \
+    PlaySongInfoWidget.cpp \
     TitleBar.cpp \
     gallery_item.cpp \
     main.cpp \
@@ -29,9 +31,11 @@ SOURCES += \
 
 HEADERS += \
     BottomWidget.h \
+    ClickLabel.h \
     ListWidgetLocalMusic.h \
     MiddleWidgetLeftList.h \
     MiddleWidgetRightStack.h \
+    PlaySongInfoWidget.h \
     TitleBar.h \
     gallery_item.h \
     mainwindow.h \
