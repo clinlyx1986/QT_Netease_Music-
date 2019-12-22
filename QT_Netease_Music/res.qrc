@@ -73,5 +73,16 @@
         <file>images/SongList/pauseLabel.png</file>
         <file>images/SongList/playLabel.png</file>
         <file>images/SongList/source.png</file>
+        <file>images/closedialog.png</file>
+        <file>images/line.png</file>
+        <file>images/lineChose.png</file>
+        <file>images/logo.png</file>
+        <file>images/logoIcon.png</file>
+        <file>images/3.png</file>
+        <file>images/4.png</file>
+        <file>images/5.png</file>
+        <file>images/6.png</file>
+        <file>images/1.png</file>
+        <file>images/2.png</file>
     </qresource>
 </RCC>
