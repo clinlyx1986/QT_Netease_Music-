@@ -5,7 +5,7 @@
 
 1、添加QT5的菜单栏、工具栏和状态栏。
 
-![](.\softscreenshoot\1.png)
+![](https://github.com/jia1000/QT_Netease_Music-/tree/master/softscreenshoot/1.png)
 
 2、添加浮动窗口：
 
