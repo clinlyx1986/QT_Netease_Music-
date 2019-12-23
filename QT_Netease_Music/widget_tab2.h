@@ -4,7 +4,7 @@
 #include <QWidget>
 
 namespace Ui {
-class tab2;
+class widget_tab2;
 }
 
 class WidgetTab2 : public QWidget
@@ -16,7 +16,7 @@ public:
     ~WidgetTab2();
 
 private:
-    Ui::tab2 *ui;
+    Ui::widget_tab2 *ui;
 };
 
 #endif // TAB2_H
