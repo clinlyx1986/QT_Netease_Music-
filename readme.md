@@ -5,17 +5,17 @@
 
 1、添加QT5的菜单栏、工具栏和状态栏。
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\1.png)
+![](.\softscreenshoot\1.png)
 
 2、添加浮动窗口：
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\2.png)
+![](.\softscreenshoot\2.png)
 
 
 
 3、添加核心客户区域。该区域拆分为2行，共3个分区。
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\3.png)
+![](.\softscreenshoot\3.png)
 
 程序中，由于Tab页代码没有及时解决bug，所以，不能回退到某个提交，所以，不能一步一步进行演示。
 
@@ -25,13 +25,13 @@
 
 1、“发现音乐”界面：
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\4.png)
+![](.\softscreenshoot\4.png)
 
 
 
 2、“本地音乐”界面：
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\5.png)
+![](.\softscreenshoot\5.png)
 
 
 
@@ -39,16 +39,16 @@
 
 此处，由于没有实现”选择目录“功能，所以，在代码里了，直接固定了文件夹路径。
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\6.png)
+![](.\softscreenshoot\6.png)
 
 
 
 7、换肤界面和实现：
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\7.png)
+![](.\softscreenshoot\7.png)
 
 
 
 8、“播放列表”界面：
 
-![](D:\Dev-Study\QT_Netease_Music\softscreenshoot\8.png)
+![](.\softscreenshoot\8.png)
